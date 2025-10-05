@@ -9,7 +9,7 @@ Aplicar técnicas de balanceamento (SMOTE) para lidar com a desproporção entre
 Gerar indicadores de desempenho (AUC, precisão, recall e curva ROC).
 
 Criar uma base sólida para aplicações de manutenção preditiva e análise de risco operacional.
-
+______________________________________________________________________________________________________________________________
 
 2 - Tecnologias Utilizadas
 
@@ -26,8 +26,9 @@ Imbalanced-learn (SMOTE) — tratamento de classes desbalanceadas
 Lifelines (opcional) — análises de sobrevivência (falhas ao longo do tempo)
 
 Jupyter Notebook — ambiente de execução e documentação
-
+_________________________________________________________________________________________________________________________-
 3 - Metodologia (Modelagem Estatística e Machine Learning)
+
 3.1 - Etapa de Preparação
 
 Limpeza dos dados e padronização de colunas.
@@ -62,6 +63,7 @@ Relatório de Classificação (precisão, recall, F1-score).
 
 Curvas de calibração para verificar a confiança das previsões probabilísticas.
 
+__________________________________________________________________________________________________________________________________________
 4 - Resultados e Conclusões
 
 O modelo de Regressão Logística apresentou bom desempenho preditivo, com AUC-ROC acima de 0.80 em validação cruzada.
@@ -72,7 +74,7 @@ As curvas de calibração indicaram previsões probabilísticas bem ajustadas.
 
 A metodologia proposta é aplicável a cenários de prevenção de falhas operacionais, manutenção preditiva e otimização logística.
 
-
+___________________________________________________________________________________________________________________________________________
 Ana Paula Vanderley
 *  Cientista de Dados | Analista de Dados Pleno
 *  Foco em modelagem estatística, machine learning e previsão de eventos operacionais.
