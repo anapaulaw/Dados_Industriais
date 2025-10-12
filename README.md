@@ -1,81 +1,75 @@
-1 - Objetivos
+Este projeto tem como objetivo desenvolver modelos de previsão de falhas em máquinas industriais utilizando técnicas de Machine Learning. A base de dados utilizada contém informações de sensores e indicadores operacionais simulados, mas representando cenários reais de produção industrial.
 
-Detectar falhas logísticas e operacionais com base em variáveis de sensores e histórico de eventos.
+Aplicação de  modelos de classificação binária para identificar a probabilidade de falha em equipamentos, permitindo antecipar manutenções e reduzir paradas não planejadas, contribuindo para maior eficiência e redução de custos no setor industrial.
 
-Comparar o desempenho de diferentes configurações da Regressão Logística Regularizada.
+__________________________________________________________________________________________________________________________________________________________________________________
 
-Aplicar técnicas de balanceamento (SMOTE) para lidar com a desproporção entre classes.
+PIPELINE
 
-Gerar indicadores de desempenho (AUC, precisão, recall e curva ROC).
+*  Carregamento e análise da base de dados
 
-Criar uma base sólida para aplicações de manutenção preditiva e análise de risco operacional.
-______________________________________________________________________________________________________________________________
+*  Identificação do tamanho, tipos de variáveis e presença de dados ausentes.
 
-2 - Tecnologias Utilizadas
+*  Definição do target: Machine failure.
 
-Python 3.10+
+*  Pré-processamento
 
-Pandas e NumPy — manipulação e transformação dos dados
+*  Tratamento de dados numéricos (imputação de medianas e escalonamento).
 
-Matplotlib e Seaborn — visualização exploratória
+*  Tratamento de dados categóricos (imputação do valor mais frequente e codificação one-hot).
 
-Scikit-learn — modelagem preditiva e avaliação de métricas
+*  Divisão treino-teste
 
-Imbalanced-learn (SMOTE) — tratamento de classes desbalanceadas
+*  Separação da base em 75% treino e 25% teste com estratificação.
 
-Lifelines (opcional) — análises de sobrevivência (falhas ao longo do tempo)
+*  Balanceamento de classes
 
-Jupyter Notebook — ambiente de execução e documentação
-_________________________________________________________________________________________________________________________-
-3 - Metodologia (Modelagem Estatística e Machine Learning)
+*  Aplicação de undersampling para equilibrar a proporção entre falhas e não-falhas.
 
-3.1 - Etapa de Preparação
+  ____________________________________________________________________________________________________________________________________________________________________
 
-Limpeza dos dados e padronização de colunas.
+TESTE DE DUAS ESTRATEGIAS
 
-Identificação da variável-alvo (Machine_failure).
+*  Modelo A: Regressão logística com class_weight='balanced'.
 
-Tratamento de valores ausentes com SimpleImputer.
+*  Modelo B: Regressão logística com undersampling + regularização L1.
 
-Codificação de variáveis categóricas com OneHotEncoder.
+*  Treinamento e avaliação dos modelos
 
-Escalonamento dos atributos numéricos com StandardScaler.
+  __________________________________________________________________________________________________________________________________________________________________
 
-3.2 - Balanceamento de Classes
+MÉTRICAS
 
-Aplicação do SMOTE (Synthetic Minority Over-sampling Technique) para aumentar a representatividade da classe minoritária e evitar viés do modelo.
+*  Acurácia, F1-score, Precision, Recall.
 
-3.3 - Modelagem Preditiva
+*  ROC AUC e Precision-Recall Curve.
 
-Construção de um Pipeline híbrido (ImbPipeline) com pré-processamento e modelo final.
+*  Ajuste de threshold para maximizar F1-score.
 
-Treinamento de uma Regressão Logística Regularizada (L1 e L2).
+*  Visualização de matriz de confusão.
 
-Avaliação com Validação Cruzada Estratificada (StratifiedKFold) e busca de hiperparâmetros com GridSearchCV.
+*  Validação cruzada
 
-3.4 - Avaliação de Desempenho
+*  Avaliação da robustez dos modelos com Stratified K-Fold (5 folds).
 
-Curva ROC e AUC (área sob a curva).
+*  Comparação de desempenho entre os dois modelos.
 
-Precision-Recall Curve e Average Precision Score.
+  ________________________________________________________________________________________________________________________________________________________________________________
 
-Relatório de Classificação (precisão, recall, F1-score).
+RESULTADOS
 
-Curvas de calibração para verificar a confiança das previsões probabilísticas.
+O Modelo A (class_weight) e o Modelo B (undersample + L1) apresentaram desempenhos comparáveis em ROC AUC e métricas de classificação.
 
-__________________________________________________________________________________________________________________________________________
-4 - Resultados e Conclusões
+A análise de threshold no Modelo B permitiu otimizar o F1-score, mostrando que ajustes simples podem impactar significativamente a performance.
 
-O modelo de Regressão Logística apresentou bom desempenho preditivo, com AUC-ROC acima de 0.80 em validação cruzada.
+As curvas ROC e Precision-Recall evidenciam a capacidade de cada modelo em identificar corretamente as falhas, mesmo com uma base de dados pequena.
 
-O uso do SMOTE reduziu o viés contra a classe minoritária e melhorou o equilíbrio entre recall e precisão.
+________________________________________________________________________________________________________________________________________________________________________________
 
-As curvas de calibração indicaram previsões probabilísticas bem ajustadas.
 
-A metodologia proposta é aplicável a cenários de prevenção de falhas operacionais, manutenção preditiva e otimização logística.
+A previsão de falhas em equipamentos é crucial no setor industrial, pois permite: Reduzir o tempo de inatividade não planejado, Planejar manutenção preventiva de forma mais eficiente
+,Reduzir custos operacionais e aumentar a produtividade.
 
-___________________________________________________________________________________________________________________________________________
-Ana Paula Vanderley
-*  Cientista de Dados | Analista de Dados Pleno
-*  Foco em modelagem estatística, machine learning e previsão de eventos operacionais.
-*   inkedIn  https://www.linkedin.com/in/apvanderley/
+Mesmo utilizando uma base pequena e simulada, este estudo mostra como técnicas de machine learning podem ser aplicadas a dados reais de sensores industriais, servindo como prova de conceito para futuras implementações em escala real. O projeto demonstra que, mesmo com dados limitados, é possível construir pipelines robustos de classificação, testar estratégias de balanceamento e regularização, e gerar insights valiosos para tomada de decisão industrial.
+
+
